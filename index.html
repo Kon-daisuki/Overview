@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation | 19216891.xyz</title>
+    <meta name="description" content="Personal Project Hub">
+    <!-- 这里用了你的音乐站图标作为导航页图标 -->
+    <link rel="icon" href="https://band.19216891.xyz/favicon.jpg">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --card-glass: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-sub: #a1a1aa;
+            
+            /* 孤独摇滚配色 */
+            --bocchi-pink: #e76c8e;
+            --ryo-blue: #2d5594; 
+            --kita-red: #c92638;
+            --nijika-yellow: #eec949;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            /* 动态背景 */
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(231, 108, 142, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(45, 85, 148, 0.08), transparent 25%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 40px 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        p.subtitle { color: var(--text-sub); font-size: 1rem; }
+
+        /* 网格布局 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        /* --- 卡片通用样式 --- */
+        .card {
+            background: var(--card-glass);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 30px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 180px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+        }
+
+        .card-top { display: flex; justify-content: space-between; align-items: start; margin-bottom: 20px; }
+        .icon { font-size: 2rem; }
+        .arrow { opacity: 0; transform: translateX(-10px); transition: all 0.3s ease; }
+        .card:hover .arrow { opacity: 1; transform: translateX(0); }
+
+        .card-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+        .card-desc { color: var(--text-sub); font-size: 0.9rem; line-height: 1.5; }
+
+        /* --- 核心卡片 (Band) 特效 --- */
+        .card.main-site {
+            grid-column: 1 / -1; /* 占据整行 */
+            background: linear-gradient(135deg, rgba(231, 108, 142, 0.1), rgba(45, 85, 148, 0.1));
+            border: 1px solid rgba(231, 108, 142, 0.3);
+            min-height: 220px;
+        }
+        
+        .card.main-site:hover {
+            box-shadow: 0 0 30px rgba(231, 108, 142, 0.15);
+            border-color: var(--bocchi-pink);
+        }
+
+        .status-pill {
+            font-size: 0.75rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            color: var(--bocchi-pink);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .status-dot { width: 6px; height: 6px; background-color: var(--bocchi-pink); border-radius: 50%; box-shadow: 0 0 8px var(--bocchi-pink); animation: pulse 2s infinite;}
+
+        /* 备用链接区域 */
+        .backup-links {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .backup-link-item {
+            color: var(--text-sub);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--text-sub);
+            transition: color 0.2s;
+            position: relative;
+            z-index: 10; /* 确保能点击 */
+        }
+        .backup-link-item:hover { color: var(--bocchi-pink); border-bottom-color: var(--bocchi-pink); }
+
+        /* --- 其他卡片微调 --- */
+        .card.style-zu { border-top: 3px solid var(--nijika-yellow); }
+        .card.style-78 { border-top: 3px solid var(--ryo-blue); }
+
+        /* 动画 */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+        /* 移动端适配 */
+        @media (max-width: 600px) {
+            .card.main-site { grid-column: auto; min-height: 200px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Portal . 19216891</h1>
+            <p class="subtitle">Welcome to the Kessoku Network</p>
+        </header>
+
+        <div class="grid">
+            <!-- 1. 主网站：音乐站 -->
+            <a href="https://band.19216891.xyz" target="_blank" class="card main-site">
+                <div class="card-top">
+                    <div class="icon">🎸</div>
+                    <div class="status-pill"><div class="status-dot"></div>Online</div>
+                </div>
+                <div>
+                    <div class="card-title">Kessoku Band Music</div>
+                    <div class="card-desc">
+                        孤独摇滚粉丝同人音乐站。沉浸式播放体验，收录结束乐队全曲目。
+                    </div>
+                    <!-- 备用链接，阻止冒泡防止点击触发父卡片跳转 -->
+                    <div class="backup-links" onclick="event.stopPropagation();">
+                        <span>备用线路:</span>
+                        <a href="https://band.kessoku.us.kg" target="_blank" class="backup-link-item">band.kessoku.us.kg</a>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 2. Zu -->
+            <a href="https://zu.kessoku.us.kg" target="_blank" class="card style-zu">
+                <div class="card-top">
+                    <div class="icon">⚡</div>
+                    <span class="arrow">→</span>
+                </div>
+                <div>
+                    <div class="card-title">Project Zu</div>
+                    <div class="card-desc">Zu Server & Services. <br>kessoku.us.kg domain.</div>
+                </div>
+            </a>
+
+            <!-- 3. 78 -->
+            <a href="https://78.bocchi.us.kg" target="_blank" class="card style-78">
+                <div class="card-top">
+                    <div class="icon">🌌</div>
+                    <span class="arrow">→</span>
+                </div>
+                <div>
+                    <div class="card-title">Site 78</div>
+                    <div class="card-desc">Experimental Zone. <br>bocchi.us.kg domain.</div>
+                </div>
+            </a>
+            
+        </div>
+    </div>
+
+</body>
+</html>
