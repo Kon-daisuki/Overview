@@ -3,7 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>k的sns网站</title>
+    
+    <!-- ================= SEO 优化元数据开始 ================= -->
+    <!-- 1. 页面标题：包含品牌名和核心业务 -->
+    <title>k的个人主页 | 孤独摇滚同人音乐站 & 个人项目导航</title>
+    
+    <!-- 2. 页面描述：搜索引擎抓取的简介 -->
+    <meta name="description" content="欢迎来到k的SNS聚合网站。这里收录了Kessoku Network (孤独摇滚同人音乐站)、Project Zu、Site 78以及我的个人社交媒体账号(X/YouTube)的快速入口。">
+    
+    <!-- 3. 关键词：辅助搜索引擎定位 -->
+    <meta name="keywords" content="k的sns网站, 孤独摇滚, Kessoku Band, 个人主页, 导航页, 同人音乐, 19216891.xyz, 个人博客">
+    
+    <!-- 4. 作者信息 -->
+    <meta name="author" content="k">
+    
+    <!-- 5. 规范链接：集中页面权重 -->
+    <link rel="canonical" href="https://www.19216891.xyz/">
+
+    <!-- ================= 社交媒体分享卡片 (Open Graph) ================= -->
+    <!-- 当链接分享到微信、Discord、Twitter时显示的预览 -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.19216891.xyz/">
+    <meta property="og:title" content="k的个人主页 | Kessoku Network">
+    <meta property="og:description" content="收录孤独摇滚同人音乐、个人项目及社交动态的聚合传送门。">
+    <meta property="og:image" content="https://band.19216891.xyz/favicon.jpg">
+    <meta property="og:site_name" content="k的个人主页">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@qwe1763676">
+    <meta name="twitter:title" content="k的个人主页 | Kessoku Network">
+    <meta name="twitter:description" content="k的SNS聚合网站与孤独摇滚同人音乐站。">
+    <meta name="twitter:image" content="https://band.19216891.xyz/favicon.jpg">
+    <!-- ================= SEO 优化元数据结束 ================= -->
+
     <link rel="icon" href="https://band.19216891.xyz/favicon.jpg">
     
     <style>
@@ -27,6 +60,7 @@
             display: flex;
             justify-content: center;
             padding: 40px 20px;
+            /* 背景优化：稍微增加一点纹理或渐变深度 */
             background-image: radial-gradient(circle at 50% -20%, rgba(231, 108, 142, 0.15), transparent 60%);
             background-attachment: fixed;
         }
@@ -75,8 +109,9 @@
             padding: 4px 10px;
             border-radius: 99px;
             font-weight: 600;
+            border: 1px solid rgba(16, 185, 129, 0.2); /* 增加微弱边框 */
         }
-        .status-dot-h { width: 6px; height: 6px; background: #10B981; border-radius: 50%; margin-right: 6px; }
+        .status-dot-h { width: 6px; height: 6px; background: #10B981; border-radius: 50%; margin-right: 6px; box-shadow: 0 0 8px rgba(16, 185, 129, 0.4); }
 
         /* === 社交媒体按钮栏 === */
         .social-bar {
@@ -96,6 +131,7 @@
             box-shadow: var(--shadow-sm);
             transition: all 0.2s ease;
             font-size: 1.2rem;
+            border: 1px solid rgba(0,0,0,0.02); /* 增加微弱边框 */
         }
 
         .social-btn svg { width: 20px; height: 20px; fill: currentColor; }
@@ -108,7 +144,6 @@
         /* 品牌色悬停效果 */
         .btn-x:hover { color: #000000; }
         .btn-yt:hover { color: #FF0000; }
-        /* 新增：邮箱悬停颜色 (使用主题粉色) */
         .btn-mail:hover { color: var(--accent-pink); }
 
 
@@ -194,7 +229,8 @@
         <header>
             <div class="header-text">
                 <div class="header-title-row">
-                    <h1>k的sns网站</h1>
+                    <!-- H1是SEO权重的重点 -->
+                    <h1>k的个人主页</h1>
                     <div class="status-badge"><div class="status-dot-h"></div>Online</div>
                 </div>
                 <p>Kessoku Network & Personal Hub</p>
@@ -202,71 +238,11 @@
                 <!-- 社交媒体按钮栏 -->
                 <div class="social-bar">
                     <!-- X (Twitter) -->
-                    <a href="https://x.com/qwe1763676" target="_blank" class="social-btn btn-x" aria-label="X (Twitter)">
+                    <!-- 添加 rel="noopener noreferrer" 提高安全性 -->
+                    <a href="https://x.com/qwe1763676" target="_blank" rel="noopener noreferrer" class="social-btn btn-x" aria-label="关注我的 X (Twitter) 账号">
                         <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     </a>
                     
                     <!-- YouTube -->
-                    <a href="https://www.youtube.com/@k-onsaiko" target="_blank" class="social-btn btn-yt" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    </a>
-
-                    <!-- Email (新增) -->
-                    <a href="mailto:kon@bocchi.us.kg" class="social-btn btn-mail" aria-label="Email">
-                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    </a>
-                </div>
-            </div>
-        </header>
-
-        <div class="grid">
-            
-            <!-- 1. 主卡片 -->
-            <div class="card main-card" onclick="window.open('https://band.19216891.xyz', '_blank')" style="cursor: pointer;">
-                <div>
-                    <div class="main-card-icon">🎸</div>
-                    <div class="main-card-title">Kessoku Band Music</div>
-                    <p class="main-card-desc">孤独摇滚粉丝同人音乐站。沉浸式在线播放体验，收录全曲目。</p>
-                </div>
-                
-                <a href="https://band.kessoku.us.kg" target="_blank" class="backup-pill" onclick="event.stopPropagation();">
-                    <span class="backup-dot"></span>
-                    <span>备用线路: band.kessoku.us.kg</span>
-                </a>
-            </div>
-
-            <!-- 2. 副卡片组 -->
-            <div class="sub-grid">
-                
-                <!-- Zu -->
-                <a href="https://zu.19216891.xyz" target="_blank" class="card sub-card card-zu">
-                    <div class="sub-icon">⚡</div>
-                    <div class="sub-content">
-                        <div class="sub-title">Project Zu</div>
-                        <p class="sub-desc">对阿祖同学的偏爱</p>
-                    </div>
-                    <span class="arrow-icon">→</span>
-                </a>
-
-                <!-- 78 -->
-                <a href="https://kon-daisuki.github.io/78changdu.github.io" target="_blank" class="card sub-card card-78">
-                    <div class="sub-icon">🌌</div>
-                    <div class="sub-content">
-                        <div class="sub-title">Site 78</div>
-                        <p class="sub-desc">Experimental Zone</p>
-                    </div>
-                    <span class="arrow-icon">→</span>
-                </a>
-
-            </div>
-
-        </div>
-
-        <footer>
-   <a href="https://www.19216891.xyz/" target="_blank">k的sns网站</a> &copy; 2026.All rights reserved 
-        </footer>
-
-    </div>
-
-</body>
-</html>
+                    <a href="https://www.youtube.com/@k-onsaiko" target="_blank" rel="noopener noreferrer" class="social-btn btn-yt" aria-label="订阅我的 YouTube 频道">
+                        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.5
